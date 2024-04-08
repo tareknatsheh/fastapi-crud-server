@@ -1,0 +1,103 @@
+{
+    "students": [
+        {
+            "name": "John",
+            "id": 1,
+            "age": 16,
+            "classes": [
+                "math",
+                "science",
+                "english"
+            ]
+        },
+        {
+            "name": "Sarah",
+            "id": 2,
+            "age": 17,
+            "classes": [
+                "history",
+                "biology",
+                "french"
+            ]
+        },
+        {
+            "name": "Michael",
+            "id": 3,
+            "age": 16,
+            "classes": [
+                "art",
+                "math",
+                "physics"
+            ]
+        },
+        {
+            "name": "Emily",
+            "id": 4,
+            "age": 15,
+            "classes": [
+                "science",
+                "french",
+                "art"
+            ]
+        },
+        {
+            "name": "David",
+            "id": 5,
+            "age": 17,
+            "classes": [
+                "biology",
+                "history",
+                "art"
+            ]
+        },
+        {
+            "name": "Nader",
+            "id": 20,
+            "age": 45,
+            "classes": [
+                "biology"
+            ]
+        },
+        {
+            "name": "Noor",
+            "id": 17,
+            "age": 9,
+            "classes": [
+                "sport"
+            ]
+        },
+        {
+            "name": "Sawsan",
+            "id": 18,
+            "age": 15,
+            "classes": [
+                "biology"
+            ]
+        },
+        {
+            "name": "www",
+            "id": 184,
+            "age": 9,
+            "classes": [
+                "sport"
+            ]
+        },
+        {
+            "name": "nedal",
+            "id": 77,
+            "age": 30,
+            "classes": [
+                "history",
+                "science"
+            ]
+        },
+        {
+            "name": "alaa",
+            "id": 30,
+            "age": 30,
+            "classes": [
+                "history"
+            ]
+        }
+    ]
+}

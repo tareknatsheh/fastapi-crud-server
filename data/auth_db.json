@@ -1,0 +1,27 @@
+{
+    "tarek": {
+        "username": "tarek",
+        "password": "$2b$12$e0rpzqJ0Jl94Ivfx3mLyaO8LqNvpPeUFoMVhBYJr4o/iM9jBh0w8C",
+        "role": "admin"
+    },
+    "rami": {
+        "username": "rami",
+        "password": "$2b$12$L9i1ZArZHm0wGT7.sqCdMeu/5vYHz8jdAlEYIE.IurDzOq4sEzV12",
+        "role": "guest"
+    },
+    "yosi": {
+        "username": "yosi",
+        "password": "$2b$12$H4KdQjYO5fDK620UoEkyBOLShqSKfuPSLIoTTWickzTF8XpgPWDf.",
+        "role": "guest"
+    },
+    "sameer": {
+        "username": "sameer",
+        "password": "$2b$12$Ux16ScdeTF7MMcJp0hQz4eVQWpWbIPhp0vUIMjn9HicDVcJd6vK2G",
+        "role": "guest"
+    },
+    "nader": {
+        "username": "nader",
+        "password": "$2b$12$5wSHVKhf/9NO2DP/d2OcPOUnouLHj2ehvofXtFc0l0k1jvRoMU.16",
+        "role": "guest"
+    }
+}
