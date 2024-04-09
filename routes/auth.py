@@ -1,13 +1,14 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Request
 from models.auth import Auth_Model
 from utils import auth_helper as auth
-from utils.decorators import handle_errors
+from utils.decorators import handle_errors, log_it
 
 router = APIRouter()
 
-@handle_errors
 @router.post('/auth/sign_up')
-def sign_up(body:Auth_Model) -> dict[str, str]:
+@handle_errors
+@log_it
+def sign_up(request: Request, body:Auth_Model) -> dict[str, str]:
     """Sign up for a new user account
 
     Args:
@@ -29,9 +30,10 @@ def sign_up(body:Auth_Model) -> dict[str, str]:
     return {"msg": "User creation succeeded", "token": jwt_token}
     # return dict(user_creation_result)
 
-@handle_errors
 @router.post('/auth/sign_in')
-def sign_in(body:Auth_Model) -> dict[str, str]:
+@handle_errors
+@log_it
+def sign_in(request: Request, body:Auth_Model) -> dict[str, str]:
     """Sign registered users in and return a token
 
     Args:

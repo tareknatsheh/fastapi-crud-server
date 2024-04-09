@@ -1,0 +1,7 @@
+{
+    "classes":[
+        {"id": 1, "name": "math", "teacher": "Ms. Johnson", "topic": "Algebra"},
+        {"id": 2, "name": "history", "teacher": "Mr. Khalil", "topic": "World War II"},
+        {"id": 3, "name": "science", "teacher": "Dr. Lee", "topic": "Chemical Reactions"}
+    ]
+}

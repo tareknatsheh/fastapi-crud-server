@@ -1,15 +1,16 @@
 from fastapi import APIRouter, Path, HTTPException, Depends, Request
 from typing import Optional, Annotated
-from models.students_modal import Student
+from models.students_models import Student
 import utils.db_helper as db
 import utils.auth_helper as auth
 from utils.decorators import handle_errors, log_it
+from decouple import config
 
+DB_FILEPATH = config("DB_FILEPATH")
 router = APIRouter()
-DB_FILEPATH = "./data/school_database.json"
 
-@handle_errors
 @router.get("/students")
+@handle_errors
 @log_it
 def get_students(request: Request, is_admin: Annotated[bool, Depends(auth.verify_admin)], inclass: Optional[str] = None):
     """Root directory
@@ -28,10 +29,10 @@ def get_students(request: Request, is_admin: Annotated[bool, Depends(auth.verify
     students_in_class = [student for student in all_students if inclass.lower() in student["classes"]]
     return students_in_class
 
-@log_it
-@handle_errors
 @router.get("/students/{id}")
-def get_student_by_id(is_user: Annotated[bool, Depends(auth.verify_user)],id: int = Path(title="The ID of the student you want to get",
+@handle_errors
+@log_it
+def get_student_by_id(request: Request,is_user: Annotated[bool, Depends(auth.verify_user)],id: int = Path(title="The ID of the student you want to get",
                                      description="It must be a non zero integer",
                                      gt=0)) -> Student:
     """Get a specific student by their unique id
@@ -46,10 +47,10 @@ def get_student_by_id(is_user: Annotated[bool, Depends(auth.verify_user)],id: in
         raise HTTPException(status_code=401, detail="Invalid user!")
     return db.get_student_by_id(DB_FILEPATH, id)
 
-@log_it
-@handle_errors
 @router.post("/students")
-def post_student(is_admin: Annotated[bool, Depends(auth.verify_admin)], new_student: Student) -> dict[str, str] | Student:
+@handle_errors
+@log_it
+def post_student(request: Request, is_admin: Annotated[bool, Depends(auth.verify_admin)], new_student: Student) -> dict[str, str] | Student:
     """Add new students to the database
 
     Raises:
@@ -64,10 +65,10 @@ def post_student(is_admin: Annotated[bool, Depends(auth.verify_admin)], new_stud
     add_result = db.add_student(DB_FILEPATH, new_student)
     return add_result
 
-@log_it
-@handle_errors
 @router.delete("/students")
-def delete_students(is_admin: Annotated[bool, Depends(auth.verify_admin)]) -> dict[str, str]:
+@handle_errors
+@log_it
+def delete_students(request: Request, is_admin: Annotated[bool, Depends(auth.verify_admin)]) -> dict[str, str]:
     """Delete all students in the db (Admins only)
     """
 
@@ -84,10 +85,10 @@ def delete_students(is_admin: Annotated[bool, Depends(auth.verify_admin)]) -> di
     
     raise HTTPException(status_code=500, detail="Internal server error, deleting request failed.")
 
-@log_it
-@handle_errors
 @router.delete("/students/{id}")
-def delete_student_by_id(is_user: Annotated[bool, Depends(auth.verify_user)],id: int = Path(title="The ID of the student you want to delete",
+@handle_errors
+@log_it
+def delete_student_by_id(request: Request, is_user: Annotated[bool, Depends(auth.verify_user)],id: int = Path(title="The ID of the student you want to delete",
                                      description="It must be a non zero integer",
                                      gt=0)) -> dict[str, str]:
     """Delete a specific student by their unique id
