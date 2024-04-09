@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from routes import students, auth
+from routes import students, auth, chat
 from fastapi.testclient import TestClient
 
 """
@@ -20,6 +20,7 @@ client = TestClient(app)
 
 app.include_router(auth.router, tags=["Autherization endpoints"])
 app.include_router(students.router, tags=["Student endpoints"])
+app.include_router(chat.router, tags=["Chat endpoints"])
 
 
 @app.get("/")

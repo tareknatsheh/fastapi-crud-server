@@ -68,3 +68,4 @@ AKA we get Single Sign On feature!
 ### TODO backlog
 Some improvements that needs to be done:
 - Increment id automatically when new student is added
+- In the logger, include the user username in the logs
