@@ -41,6 +41,7 @@ def log_it(fn):
             res = fn(request, *args, **kwargs)
             return res
         except Exception as error:
-            logging.error(f"{str(error).replace('\n', '-')}")
+            no_newlines_error = str(error).replace('\n', '-')
+            logging.error(f"{no_newlines_error}")
             raise error
     return wrapper

@@ -51,6 +51,6 @@ def sign_in(request: Request, body:Auth_Model) -> dict[str, str]:
         # check their role:
         role: str = user["role"]
         token: str = auth.generate_jwt_token({"role": role})
-        return {"msg": f"{user["username"]} sing-in successful","token": token}
+        return {"msg": f"{user['username']} sing-in successful","token": token}
     else:
         raise HTTPException(status_code=401, detail="Wrong username or password")

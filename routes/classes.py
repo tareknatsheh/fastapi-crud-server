@@ -1,17 +1,13 @@
-from turtle import update
 from fastapi import APIRouter, Request
-from models.students_models import Student
 from models.classes_models import Class
 from utils.decorators import handle_errors, log_it
 import utils.classes_helper as c
 from utils.db_helper import get_all_students, update_students_list, get_student_by_id
 from decouple import config
 
-
 router = APIRouter()
 CLASSES_DB = "./data/classes_db.json"
 DB_FILEPATH = config("DB_FILEPATH")
-
 
 @router.post("/add-class-to-student")
 @handle_errors
