@@ -11,9 +11,10 @@ def profanity_check(msg: str):
     msg = msg[:50]
     return msg.capitalize()
 
-@router.get("/chat")
-def chat():
-    return FileResponse('public/chat.html')
+# It's an endpoint for serving a chat UI, we will be using the terminal so, ignore it.
+# @router.get("/chat")
+# def chat():
+#     return FileResponse('public/chat.html')
 
 @router.websocket("/ws/{client_id}")
 async def chat_ws_endpoint(websocket: WebSocket, client_id: int):
