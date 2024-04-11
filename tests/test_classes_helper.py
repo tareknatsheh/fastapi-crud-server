@@ -1,5 +1,6 @@
 import utils.classes_helper as c
 import pytest
+from models.classes_models import Class
 
 classes_list = [
         {"id": 1, "name": "math", "teacher": "Ms. Johnson", "topic": "Algebra"},
@@ -8,7 +9,7 @@ classes_list = [
     ]
 
 def test_get_class_by_id():
-    assert c.get_class_by_id(classes_list, 1) == classes_list[0]
+    assert c.get_class_by_id(classes_list, 1) == Class(**classes_list[0])
 
 def test_no_item_matches_id():
     assert c.get_class_by_id(classes_list, 100) == None

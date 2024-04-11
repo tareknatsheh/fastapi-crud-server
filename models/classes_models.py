@@ -1,5 +1,5 @@
 from typing import List
-from pydantic import BaseModel
+from pydantic import BaseModel, validator
 
 class Class(BaseModel):
     id: int
@@ -7,5 +7,8 @@ class Class(BaseModel):
     teacher: str
     topic: str
 
-class Classes(BaseModel):
-    classes: List[Class]
+    @validator("id")
+    def validate_id(cls, value):
+        if type(value) != int or value < 0:
+            raise ValueError("Class id must be a positive integer")
+        return value

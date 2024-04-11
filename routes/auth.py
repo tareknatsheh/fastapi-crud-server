@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException, Request
-from models.auth import Auth_Model
+from models.auth_models import Auth_Model
 from utils import auth_helper as auth
 from utils.decorators import handle_errors, log_it
 

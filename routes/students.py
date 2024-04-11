@@ -45,7 +45,9 @@ def get_student_by_id(request: Request,is_user: Annotated[bool, Depends(auth.ver
     """
     if not is_user:
         raise HTTPException(status_code=401, detail="Invalid user!")
-    return db.get_student_by_id(DB_FILEPATH, id)
+    all_students = db.get_all_students(DB_FILEPATH)
+    index, target_student = db.get_student_by_id(DB_FILEPATH, all_students, id)
+    return target_student
 
 @router.post("/students")
 @handle_errors

@@ -23,5 +23,10 @@
         "username": "nader",
         "password": "$2b$12$5wSHVKhf/9NO2DP/d2OcPOUnouLHj2ehvofXtFc0l0k1jvRoMU.16",
         "role": "guest"
+    },
+    "tarek2": {
+        "username": "tarek2",
+        "password": "$2b$12$XeWdP3YmJ6IBZ4IXpolEYO1PDR2gL7KeDIUNveKd.vXdzRG/6LkZy",
+        "role": "guest"
     }
 }

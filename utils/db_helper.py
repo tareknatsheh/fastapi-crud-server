@@ -1,4 +1,5 @@
 import json
+from models.students_models import Student
 
 def check_if_valid_school_data(data):
     if not isinstance(data, dict) or 'students' not in data:
@@ -19,7 +20,7 @@ def write_data(file_path, data):
         f.truncate()
         return True
 
-def get_all_students(file_path):
+def get_all_students(file_path) -> list:
     data = get_data(file_path)
     check_if_valid_school_data(data)
     return data["students"]
@@ -28,11 +29,11 @@ def update_students_list(file_path, new_students_list: list):
     data = {"students": new_students_list}
     return write_data(file_path, data)
 
-def get_student_by_id(file_path, id):
-    all_students = get_all_students(file_path)
-    for student in all_students:
+def get_student_by_id(file_path, all_students_list, id) -> tuple[int, Student]:
+    for index, student in enumerate(all_students_list):
         if student["id"] == id:
-            return student
+            student_object = Student(**student)
+            return index, student_object
     raise FileNotFoundError(f'Student with id {id} not in db')
 
 def add_student(file_path, new_student):

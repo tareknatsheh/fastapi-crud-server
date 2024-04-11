@@ -25,10 +25,12 @@ def handle_errors(fn):
             raise http_error
         except ValidationError as error:
             print(error)
-            raise HTTPException(status_code=400, detail="Validation error. Check the integrity of db or passed parameters")
+            raise HTTPException(status_code=400, detail={"message": "Validation error. Check the integrity of db or passed parameters", "error": f"{error}"})
+        except FileNotFoundError as error:
+            raise HTTPException(status_code=404, detail={"message": "Data not found", "error": f"{error}"})
         except Exception as error:
             print(error)
-            raise HTTPException(status_code=500, detail="Internal server error. Check logs for more info")
+            raise HTTPException(status_code=500, detail={"message": "Internal server error. Check logs for more info", "error": f"{error}"})
     return wrapper
 
 def log_it(fn):
