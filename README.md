@@ -57,8 +57,8 @@ Here is how to test it:
 5. Active the vertual env: `. .venv/Scripts/activate`
 6. Install dependencies `pip install -r requirements` (you may need to install `pip` if you don't have it)
 7. Run the server: `uvicorn server:app --reload`
-8. Open a second WSL terminal and execute this: websocat `ws://localhost:8000/ws/1` (here the user id is 1, not that it can be anything else)
-9. Opend a third WSL terminal and execute this: websocat `ws://localhost:8000/ws/2`
+8. Open a second WSL terminal and execute this: `websocat ws://localhost:8000/ws/1` (here the user id is 1, not that it can be anything else)
+9. Opend a third WSL terminal and execute this: `websocat ws://localhost:8000/ws/2`
 
 Now you have to clients/chatters that can chat, try typing and sending text between them.
 
